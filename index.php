@@ -1,6 +1,6 @@
 <?php
 include("connection.php");
-// -------------------------------------- this is en VIEW-page ------------------------------------------------------------
+// -------------------------------------- this is a VIEW-page ------------------------------------------------------------
 echo "<!DOCTYPE html>
 <html>
 <head>
@@ -44,3 +44,22 @@ echo "</table></body></html>";
 
 
 //$sql = "SELECT firstname, lastname, email, preferredlanguage, linkedin FROM student";
+// kan nog niet want nog geen waarden in student
+//$stmt = $db->prepare('SELECT * FROM student');
+//$stmt->bindValue(PDO::PARAM_INT);
+//$stmt->bindValue(PDO::PARAM_STR);
+//$stmt->execute();
+
+
+
+
+//$pdo = new PDO('mysql:host=localhost;dbname=becode', 'AnnKemp', 'AnnKemp_116', array(PDO::ATTR_PERSISTENT => true));
+
+//$statement = $pdo->query("SELECT * FROM student");
+//$row = $statement->fetch(PDO::FETCH_ASSOC);
+//echo htmlentities($row['*']);
+//echo "<ul>";
+//foreach ($statement as $rij) {
+// echo "<li>".$rij['firstname']." - ".$rij['lastname']."</li>";
+//}
+//echo "</ul>";
