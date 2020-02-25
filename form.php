@@ -24,12 +24,12 @@
 </head>
 <body>
 <div class="container">
-    <h1>Fill database</h1>
+    <h1>Register</h1>
     <!-- dit hieronder nog even testen -->
-    <form method="post" action="insert.php" enctype="multipart/form-data" >
+    <form method="post" action="register.php" enctype="multipart/form-data" >
 
         <fieldset>
-            <legend>Data</legend>
+            <legend> </legend>
 
             <div class="form-row">
                 <div class="form-group col-md-6">
@@ -39,7 +39,7 @@
                     <span class="error"> <?php echo $streetErr; ?></span>
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="lastname">last name:</label>
+                    <label for="lastname">Last name:</label>
                     <input type="text" id=lastname" name="lastname" class="form-control" required value="<?php echo $lastname;?>">
                     <span class="error"> <?php echo $streetnrErr; ?></span>
                 </div>
@@ -93,13 +93,32 @@
                     <span class="error"> <?php echo $emailErr; ?></span>
                 </div>
             </div>
-            <input type="text" name="fileToUpload" required id="fileToUpload">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="fileupload">Avatar link:</label>
+                     <input type="text" id="fileupload" name="fileToUpload" required class="form-control" >
+                    <span class="error"> <?php echo $emailErr; ?></span>
+            </div>
+            </div>
+               <h1>Your password here :</h1>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="password">Password :</label>
+                    <input type="text" id="password" name="password" class="form-control" >
+                    <span class="error"> <?php echo $emailErr; ?></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="password">Repeat password :</label>
+                    <input type="text" id="password_confirm" name="password_confirm" class="form-control" >
+                    <span class="error"> <?php echo $emailErr; ?></span>
+                </div>
+            </div>
         </fieldset>
         <p>
         <button type="submit" class="btn btn-primary">SEND</button>
         </p>
     </form>
-    <footer>Fuck off! You already ordered food and drinks.</footer>
+    <footer> </footer>
 </div>
 </body>
 </html>
