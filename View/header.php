@@ -12,7 +12,11 @@
         table{
             font-family: arial, sans-serif;
             border-collapse: collapse;
-            width: 100%;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+            margin-bottom: 40px;
         }
 
         td, th {
