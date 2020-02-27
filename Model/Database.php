@@ -18,9 +18,9 @@ class Database
     private $alldata;
 
   // Methods
-    // the setter for the connection:---------------------------------------------------------------------------------------------------------------------------------
+    // the setter for the connection:-----------------------------------------------------------------------------------------------------------------
 
-    function __construct() // excecutes inmmediatly the connection
+    function __construct() // excecutes immediatly the connection
     {
         // Is used in this class by the other methods so it doesn't have return a value
         try {
@@ -72,10 +72,41 @@ try { // prepare to insert a row into the database
         }
     }
     function show_alldata() {
-        $this->get_alldata(); // hier de functie ge_alldata terug aanroepen om $this->alldata er uit te kunnen halen
+        $this->get_alldata();  // you need to call the method get_alldata() to get to $this->alldata to return this value
 
             return $this->alldata;
         }
+
+// for delete
+/*$stmt = $db->exec(
+'DELETE FROM collections WHERE user_id = ' . $db->quote(20, PDO::PARAM_INT)
+);
+
+$stmt = $db->prepare('SELECT * FROM collections WHERE user_id = :user_id OR name = :name');
+$stmt->bindValue(':user_id', 2, PDO::PARAM_INT);
+$stmt->bindValue(':name', 'russia', PDO::PARAM_STR);
+$stmt->execute();
+
+$stmt = $db->prepare('SELECT * FROM collections WHERE user_id = ? OR name = ?');
+$stmt->execute(array(2, 'russia'));
+
+    public function insertBlob($filePath, $mime) {
+        $blob = fopen($filePath, 'rb');
+
+        $sql = "INSERT INTO files(mime,data) VALUES(:mime,:data)";
+        $stmt = $this->pdo->prepare($sql);
+
+        $stmt->bindParam(':mime', $mime);
+        $stmt->bindParam(':data', $blob, PDO::PARAM_LOB);
+
+        return $stmt->execute();
+    }
+
+*/
+
+
+
+
 
 
 /*class DataMapper
