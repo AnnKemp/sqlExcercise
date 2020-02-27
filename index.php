@@ -9,6 +9,7 @@ require 'Control/Controller.php';
 
 // include all your model files here
 require 'Model/Database.php';
+require 'Model/Validation.php';
 
 $controller = new Controller();
 $controller->render($_GET, $_POST); // hier de échte post en get meegeven
