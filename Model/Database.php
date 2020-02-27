@@ -16,6 +16,8 @@ class Database
 
     // Properties to show all data in a table
     private $alldata;
+    // Propertie to show the userdate on a page
+    private $userdata;
 
   // Methods
     // the setter for the connection:-----------------------------------------------------------------------------------------------------------------
@@ -35,10 +37,10 @@ class Database
     // Methods
     // the setter for the insert of form-data into the database------------------------------------------------------------------------------------------------------
 
-    function insert($firstname, $lastname, $username, $linkedin, $github, $email, $lang, $avatar, $video, $quote, $quote_author) {
+    function insert($firstname, $lastname, $username, $linkedin, $github, $email, $lang, $avatar, $video, $quote, $quote_author, $password) {
 
 try { // prepare to insert a row into the database
-    $this->sql = $this->conn->prepare("INSERT INTO student (firstname, lastname, username, linkedin, github, email, preferredlanguage, avatar, video, quote, quote_author) VALUES (:firstname, :lastname, :username, :linkedin, :github, :email, :preferredlanguage, :avatar, :video, :quote, :quote_author)");
+    $this->sql = $this->conn->prepare("INSERT INTO student (firstname, lastname, username, linkedin, github, email, preferredlanguage, avatar, video, quote, quote_author, password) VALUES (:firstname, :lastname, :username, :linkedin, :github, :email, :preferredlanguage, :avatar, :video, :quote, :quote_author, :password)");
 
     // this is for security
     $this->sql->bindParam(':firstname', $firstname);
@@ -52,6 +54,7 @@ try { // prepare to insert a row into the database
     $this->sql->bindParam(':video', $video);
     $this->sql->bindParam(':quote', $quote);
     $this->sql->bindParam(':quote_author', $quote_author);
+    $this->sql->bindParam(':password', $password);
 
     // execute the sql query and add the data to the database
     $this->sql->execute();
@@ -76,6 +79,25 @@ try { // prepare to insert a row into the database
 
             return $this->alldata;
         }
+//___________________________________________________________________________________________________________
+
+    function get_data_for_profile($user){
+        try {
+            $this->userdata=$this->conn->query('SELECT id, firstname, lastname, email, quote, quote_author FROM student WHERE id="$user"');
+        }
+       catch (PDOException $e) {
+                print "Error!: " . $e->getMessage() . "<br/>";
+                die();
+            }
+    }
+    function show_userdata() {
+    $this->get_data_for_profile($user);
+
+    return $this->userdata;
+}
+    /*
+
+
 
 // for delete
 /*$stmt = $db->exec(
