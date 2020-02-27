@@ -1,5 +1,42 @@
 <?php
+// check if validation is 'ok'
+if($_POST['user_email']) {
 
+    $user_email = $_POST['user_email'];
+    $password = $_POST['password'];
+
+    if ($user_email == 'admin@becode.be') {
+
+        echo '<script language="javascript">document.getElementById("inputEmail").placeholder = 
+            "right email!"; </script>';
+        echo '<script language="javascript">document.getElementById("inputEmail").style.backgroundColor = "#DAF7A6"; </script>';
+
+    } else {
+        echo '<script language="javascript">document.getElementById("inputEmail").placeholder = 
+            "wrong email!"; </script>';
+        echo '<script language="javascript">document.getElementById("inputEmail").style.backgroundColor = "pink"; </script>';
+    }
+    if ($password == 'WachtWoord123') {
+
+        echo '<script language="javascript">document.getElementById("inputPassword").placeholder = 
+            "right email!"; </script>';
+        echo '<script language="javascript">document.getElementById("inputPassword").style.backgroundColor = "#DAF7A6"; </script>';
+
+    } else {
+        echo '<script language="javascript">document.getElementById("inputPassword").placeholder = 
+            "wrong password!"; </script>';
+        echo '<script language="javascript">document.getElementById("inputPassword").style.backgroundColor = "pink"; </script>';
+    }
+    if(($user_email == 'admin@becode.be') && ($password == 'WachtWoord123')){
+        header('Location: ../homepage.php/');
+        //exit;
+    }
+}else{
+    echo '<script language="javascript">document.getElementById("inputEmail").style.backgroundColor = "white"; </script>';
+    echo '<script language="javascript">document.getElementById("inputPassword").style.backgroundColor = "white"; </script>';
+
+}
+require('login.php');
 // login logic
 
 // uit de tabel aflopen om te checken of deze email wachtwoord combinatie bestaat
